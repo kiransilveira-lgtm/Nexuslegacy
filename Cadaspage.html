@@ -86,6 +86,30 @@
         </form>
     </div>
     
+<div id="modalSucesso" class="modal-oculto">
+        <div class="modal-conteudo">
+            <div class="icone-sucesso">✅</div>
+            <h3>Parabéns!</h3>
+            <p>Seu cadastro na <strong>Nexus Legacy</strong> foi concluído com sucesso.</p>
+            <button type="button" onclick="fecharModal()">Ótimo!</button>
+        </div>
+    </div>
+
+    <script>
+        const formulario = document.getElementById('meuFormulario');
+        const modal = document.getElementById('modalSucesso');
+
+        formulario.addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede a página de recarregar
+            modal.style.display = 'flex'; // Mostra o pop-up
+        });
+
+        function fecharModal() {
+            modal.style.display = 'none'; // Esconde o pop-up
+            formulario.reset(); // Limpa o formulário
+        }
+    </script>
+    
 </body>
 </html>
 
