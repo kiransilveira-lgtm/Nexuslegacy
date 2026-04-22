@@ -154,6 +154,24 @@ footer {
     background: #000;
     color: #555;
 }
+/*--- ICONE DO SITE CANTO---*/
+.container-pai {
+    position: relative; 
+    min-height: 300px;
+    border: 1px solid #ccc;
+}
+
+.link-absoluto {
+    position: absolute;
+    bottom: 0;   /* Cola no fundo do container */
+    right: 10px; /* Alinha à direita do container */
+}
+
+
+
+
+
+
 
 /* ---TREINAMENTO HTML --- */
 
@@ -252,8 +270,8 @@ footer {
 .card-exercicio img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Faz a imagem preencher o quadrado sem distorcer */
-    filter: grayscale(50%); /* Deixa um estilo mais "dark" */
+    object-fit: cover; 
+    filter: grayscale(50%); 
     transition: 0.3s;
 }
 
@@ -277,7 +295,12 @@ footer {
     margin: 0;
 }
 
-/* ---MATRICULE-SE --- */
+
+
+
+
+
+/* ---MATRICULE-SE  HTML--- */
 :root {
     --primary: #ff8800;
     --bg: #121212;
@@ -407,7 +430,14 @@ button[type="submit"]:hover {
     border: none;
 }
 
-/* --- HISTÓRIA FISICULTURISMO --- */
+
+
+
+
+
+
+
+/* --- HISTÓRIA FISICULTURISMO HTML --- */
 .conteudo-historia {
     padding: 100px 8% 50px;
     background-color: #0A0A0A;
