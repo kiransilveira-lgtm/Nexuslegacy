@@ -23,7 +23,7 @@
 
     <div class="card">
         <h2>Matricule-se</h2>
-        <form action="enviar-cadastro" method="POST">
+        <form id="meuFormulario" action="enviar-cadastro" method="POST">
             <fieldset>
                 <legend>Informações do Aluno</legend>
                 <div class="campo">
@@ -83,25 +83,33 @@
             </fieldset>      
 
             <button type="submit">Concluir cadastro</button>
-        </form id="meuFormulario">
+        </form>
     </div>
 
-<script>
-    const formulario = document.getElementById('meuFormulario');
-    const modal = document.getElementById('modalSucesso');
+    <div id="modalSucesso" class="modal-oculto">
+        <div class="modal-conteudo">
+            <h3>Parabéns!</h3>
+            <p>Seu cadastro na <strong>Nexus Legacy</strong> foi concluído com sucesso.</p>
+            <button type="button" onclick="fecharModal()">Ótimo!</button>
+        </div>
+    </div>
 
-    // Quando o botão "Concluir cadastro" for clicado:
-    formulario.addEventListener('submit', function(event) {
-        event.preventDefault(); // Impede de mudar de página
-        modal.style.display = 'flex'; // Abre o pop-up de parabéns
-    });
+    <script>
+        const formulario = document.getElementById('meuFormulario');
+        const modal = document.getElementById('modalSucesso');
 
-    // Função apenas para o botão "Ótimo!" fechar o aviso
-    function fecharModal() {
-        modal.style.display = 'none';
-        formulario.reset(); 
-    }
-</script>
+        // O evento" acontece quando você clica no seu botão
+        formulario.addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede a página de recarregar ou mudar
+            modal.style.display = 'flex'; // Mostra o pop-up na tela
+        });
+
+        // Função para o botão do pop-up fechar o aviso
+        function fecharModal() {
+            modal.style.display = 'none';
+            formulario.reset(); 
+        }
+    </script>
     
 </body>
 </html>
