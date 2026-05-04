@@ -303,7 +303,43 @@ footer {
     margin: 0;
 }
 
+/* --- CONFIGURAÇÃO PARA CELULARES --- */
+@media screen and (max-width: 768px) {
+    
+    /* Ajusta o tamanho dos textos principais */
+    h1 {
+        font-size: 1.8rem !important;
+        text-align: center;
+    }
 
+    /* Faz com que as colunas fiquem uma embaixo da outra */
+    .container, .flex-row, .grid-container { 
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+        padding: 10px;
+    }
+
+    /* Ajusta a imagem da academia para não cortar */
+    .fotomainsite, img {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Ajusta os botões e menus para serem fáceis de clicar com o polegar */
+    button, .nav-item, a {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    /* Esconde elementos que podem poluir a tela pequena (opcional) */
+    .desktop-only {
+        display: none;
+    }
+}
 
 
 
