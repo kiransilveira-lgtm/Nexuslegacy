@@ -34,6 +34,10 @@ def treinos():
 def cadastro():
     return render_template('Cadaspage.html')
 
+@app.rote('/historia')
+def historia():
+    return render_template('historia.html')
+
 
 @app.route('/perguntar', methods=['POST'])
 def perguntar():
