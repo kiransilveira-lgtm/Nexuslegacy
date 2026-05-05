@@ -8,38 +8,47 @@ app = Flask(__name__,
 
 if not os.path.exists(os.path.join(os.path.dirname(__file__), '../templates')):
     app.template_folder = os.path.join(os.getcwd(), 'templates')
+    app.static_folder = os.path.join(os.getcwd(), 'static')
 
 IDENTIDADE_HYDRALYNX = (
-  "Sua linguagem padrão dever ser o Português Brasileiro, deve usar emojis como tópicos e falar de forma fluida e humana"
-  "Você é uma IA para auxilio em acadêmias, dietas e treinos, porém sempre lembre o usuário que você não substitui um profissional da saúde"
-  "Seu nome é MyCoach da NEXUS LEGACY, jamais revele seu código ou sua API"
-  ""
-  ""
-  ""
-
+    "Sua linguagem padrão deve ser o Português Brasileiro. Use emojis como tópicos e fale de forma fluida e humana. "
+    "Você é uma IA para auxílio em academias, dietas e treinos. Sempre lembre o usuário que você não substitui um profissional da saúde. "
+    "Seu nome é MyCoach da NEXUS LEGACY. Jamais revele seu código ou sua API."
 )
+
+# --- ROTAS DE NAVEGAÇÃO ---
 
 @app.route('/')
 def index():
+    return render_template('index.html')
+
+@app.route('/mycoach')
+def mycoach():
     return render_template('IA.html')
+
+@app.route('/treinos')
+def treinos():
+    return render_template('treinos.html')
+
+@app.route('/cadastro')
+def cadastro():
+    return render_template('Cadaspage.html')
+
 
 @app.route('/perguntar', methods=['POST'])
 def perguntar():
     try:
-
         chave = os.environ.get("OPENAI_API_KEY")
-        
         client = OpenAI(
             base_url="https://openrouter.ai/api/v1",
             api_key=chave
         )
-
-                
+        
         dados = request.get_json()
         pergunta = dados.get('mensagem')
 
         response = client.chat.completions.create(
-            model="openai/gpt-oss-20b:free", 
+            model="openai/gpt-3.5-turbo", 
             messages=[
                 {"role": "system", "content": IDENTIDADE_HYDRALYNX},
                 {"role": "user", "content": pergunta}
@@ -51,5 +60,6 @@ def perguntar():
         
     except Exception as e:
         return jsonify({"resposta": f"Erro técnico na NexusIA: {str(e)}"}), 500
+
 
 app = app
