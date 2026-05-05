@@ -2,10 +2,10 @@ import os
 from flask import Flask, render_template, request, jsonify
 from openai import OpenAI
 
-
 app = Flask(__name__, 
             template_folder="../templates", 
-            static_folder="../static")
+            static_folder="../static",
+            static_url_path="/static")
 
 IDENTIDADE_HYDRALYNX = (
     "Sua linguagem padrão deve ser o Português Brasileiro. Use emojis como tópicos e fale de forma fluida e humana. "
