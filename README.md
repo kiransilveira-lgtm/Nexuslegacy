@@ -2,7 +2,6 @@
 
 Site institucional de academia desenvolvido em **Flask**, com identidade visual voltada ao fisiculturismo clássico e um assistente de IA integrado (**MyCoach**) para tirar dúvidas sobre treinos e dieta.
 
-> Projeto acadêmico — UNIP, disciplinas de Web e IHC.
 
 ---
 
